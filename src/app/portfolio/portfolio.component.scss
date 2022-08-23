@@ -1,0 +1,68 @@
+.home {
+  background-image: url("../../assets/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+  .home-header {
+    height: 80px;
+    position: fixed;
+    background-color: #012035;
+    width: 100%;
+    z-index: 2;
+    
+    i {
+      color: #fafafa;
+      cursor: pointer;
+      animation-iteration-count: .25;
+    }
+  }
+
+  &-content {
+    height: inherit;
+
+    .social {
+      color: #fafafa;
+      font-family: 'DM Sans';
+      
+      span {
+        writing-mode: vertical-lr;
+        font-size: 28px;
+      }
+
+      div {
+        height: 34px;
+        background-color: #fafafa;
+        width: 1px;
+      }
+
+      i {
+        display: block;
+      }
+    }
+
+    .presentation {
+      color: #fafafa;
+
+      &-name {
+        font-size: 64px;
+      }
+      
+      &-job {
+        font-size: 32px;
+        border-right: 2px solid rgba(255,255,255,.75);
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.anim-typewriter{
+  animation: typewriter 2s steps(44) 1s 1 normal both,
+}
+
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 7em;}
+}
