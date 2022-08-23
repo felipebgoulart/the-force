@@ -1,0 +1,19 @@
+.force-button {
+  border-radius: 50px;
+  cursor: pointer;
+  border: 3px solid #9747FF;
+
+  span {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.filled {
+  background-color: #9747FF;
+}
+
+.outlined {
+  background-color: transparent;
+  color: #9747FF;
+}
