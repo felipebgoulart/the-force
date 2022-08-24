@@ -27,6 +27,11 @@ jobs:
 
       - name: Build
         run: npm run build:prod
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: 'dist'
 
   deploy:
     needs: build
@@ -44,11 +49,6 @@ jobs:
     steps:
       - name: Setup Pages
         uses: actions/configure-pages@v1
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: 'dist'
           
       - name: Deploy to GitHub Pages
         id: deployment
