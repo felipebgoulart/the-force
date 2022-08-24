@@ -48,7 +48,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: 'github-pages.tar.gz'
+          path: '.'
           
       - name: Deploy to GitHub Pages
         id: deployment
