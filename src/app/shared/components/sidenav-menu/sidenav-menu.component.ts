@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MenuItemModel } from '../../models/menu-item-model';
 
 @Component({
@@ -9,37 +9,44 @@ import { MenuItemModel } from '../../models/menu-item-model';
 export class SidenavMenuComponent implements OnInit {
 
   @Input('isSideNavOpened') isSideNavOpened: boolean = false;
+  @Output() itemClickEmitter: EventEmitter<string> = new EventEmitter<string>();
 
   public items: MenuItemModel[] = []
 
   private home: MenuItemModel = {
     icon: 'fa-solid fa-house',
-    name: 'Home'
+    name: 'Home',
+    link: '#home'
   };
 
   private about: MenuItemModel = {
     icon: 'fa-solid fa-user-astronaut',
-    name: 'About'
+    name: 'About',
+    link: '#about'
   };
 
   private technologies: MenuItemModel = {
     icon: 'fa-brands fa-connectdevelop',
-    name: 'Technologies'
+    name: 'Technologies',
+    link: '#technologies'
   };
 
   private resume: MenuItemModel = {
     icon: 'fa-solid fa-user-graduate',
-    name: 'Resume'
+    name: 'Resume',
+    link: '#resume'
   };
 
   private portfolio: MenuItemModel = {
     icon: 'fa-solid fa-code',
-    name: 'Portfolio'
+    name: 'Portfolio',
+    link: '#portfolio'
   };
 
   private contact: MenuItemModel = {
     icon: 'fa-solid fa-id-card',
-    name: 'Contact'
+    name: 'Contact',
+    link: '#contact'
   };
 
   constructor() {}
@@ -53,6 +60,10 @@ export class SidenavMenuComponent implements OnInit {
       this.portfolio,
       this.contact
     );
+  }
+
+  public onItemClicked(id: string) {
+    this.itemClickEmitter.emit(id);
   }
 
 }
