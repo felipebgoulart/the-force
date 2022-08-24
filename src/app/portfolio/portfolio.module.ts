@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { PortfolioComponent } from './portfolio.component';
 import { SharedModule } from '../shared/shared.module';
+import { HomeModule } from './components/home/home.module';
+import { AboutModule } from './components/about/about.module';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     PortfolioRoutingModule,
-    SharedModule
+    SharedModule,
+    HomeModule,
+    AboutModule
   ]
 })
 export class PortfolioModule { }
