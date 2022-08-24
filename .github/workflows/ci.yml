@@ -28,6 +28,20 @@ jobs:
       - name: Build
         run: npm run build:prod
 
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Setup Pages
         uses: actions/configure-pages@v1
 
@@ -39,29 +53,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-
-  # deploy:
-  #   needs: build
-
-  #   permissions:
-  #     pages: write
-  #     id-token: write
-
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - name: Setup Pages
-  #       uses: actions/configure-pages@v1
-
-  #     - name: Upload artifact
-  #       uses: actions/upload-pages-artifact@v1
-  #       with:
-  #         path: '.'
-          
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v1
