@@ -2,9 +2,7 @@ name: CI / CD - the forcefolio
 
 on:
   push:
-  pull_request:
     branches: [ "main" ]
-    types: ['closed']
   workflow_dispatch:
 
 jobs:
