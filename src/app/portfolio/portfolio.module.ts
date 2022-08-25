@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeModule } from './components/home/home.module';
 import { AboutModule } from './components/about/about.module';
 import { TechnologiesModule } from './components/technologies/technologies.module';
+import { ResumeModule } from './components/resume/resume.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TechnologiesModule } from './components/technologies/technologies.modul
     SharedModule,
     HomeModule,
     AboutModule,
-    TechnologiesModule
+    TechnologiesModule,
+    ResumeModule
   ]
 })
 export class PortfolioModule { }

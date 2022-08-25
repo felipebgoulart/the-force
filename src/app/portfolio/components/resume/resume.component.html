@@ -1,0 +1,20 @@
+<div class="p-5 resume">
+  <div class="px-5">
+    <span class="d-block resume-title">My resume</span>
+
+    <div class="mt-3">
+      <div *ngFor="let item of expericences; let i = index" class="row justify-content-between">
+        <div class="col-md-6 col-sm-12">
+          <div *ngIf="i % 2 == 0" class="float-md-left">
+            <app-force-card-exp></app-force-card-exp>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div *ngIf="i % 2 != 0" class="float-md-right">
+            <app-force-card-exp></app-force-card-exp>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

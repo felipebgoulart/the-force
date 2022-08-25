@@ -12,7 +12,7 @@ export class PortfolioComponent implements OnInit {
   @ViewChild('home', {static: true}) home!: ElementRef<HTMLElement>;
   @ViewChild('about', {static: true}) about!: ElementRef<HTMLElement>;
   @ViewChild('technologies', {static: true}) technologies!: ElementRef<HTMLElement>;
-  // @ViewChild('about', {static: true}) about!: ElementRef<HTMLElement>;
+  @ViewChild('resume', {static: true}) resume!: ElementRef<HTMLElement>;
   // @ViewChild('about', {static: true}) about!: ElementRef<HTMLElement>;
 
   public isSideNavOpened: boolean = false;
@@ -40,6 +40,9 @@ export class PortfolioComponent implements OnInit {
         break;
       case '#technologies':
         this.technologies.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        break;
+      case '#resume':
+        this.resume.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
         break;
       default:
         this.home.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
