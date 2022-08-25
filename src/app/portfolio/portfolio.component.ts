@@ -11,7 +11,7 @@ export class PortfolioComponent implements OnInit {
 
   @ViewChild('home', {static: true}) home!: ElementRef<HTMLElement>;
   @ViewChild('about', {static: true}) about!: ElementRef<HTMLElement>;
-  // @ViewChild('about', {static: true}) about!: ElementRef<HTMLElement>;
+  @ViewChild('technologies', {static: true}) technologies!: ElementRef<HTMLElement>;
   // @ViewChild('about', {static: true}) about!: ElementRef<HTMLElement>;
   // @ViewChild('about', {static: true}) about!: ElementRef<HTMLElement>;
 
@@ -36,7 +36,10 @@ export class PortfolioComponent implements OnInit {
         this.home.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
         break;
       case '#about':
-        this.about.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        this.about.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        break;
+      case '#technologies':
+        this.technologies.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
         break;
       default:
         this.home.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });

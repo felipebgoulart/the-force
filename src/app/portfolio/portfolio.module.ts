@@ -6,6 +6,7 @@ import { PortfolioComponent } from './portfolio.component';
 import { SharedModule } from '../shared/shared.module';
 import { HomeModule } from './components/home/home.module';
 import { AboutModule } from './components/about/about.module';
+import { TechnologiesModule } from './components/technologies/technologies.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AboutModule } from './components/about/about.module';
     PortfolioRoutingModule,
     SharedModule,
     HomeModule,
-    AboutModule
+    AboutModule,
+    TechnologiesModule
   ]
 })
 export class PortfolioModule { }
