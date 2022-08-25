@@ -1,25 +1,25 @@
 .force-card-exp {
-    background-color: transparent;
-    min-width: 450px;
-    max-width: 450px;
-    border: 5px solid #a7a7a79f;
-    color: #fafafaac;
+  background-color: transparent;
+  min-width: 450px;
+  max-width: 450px;
+  border: 5px solid #a7a7a79f;
+  color: #fafafaac;
 
-    &-title {
-        color: #14788F;
-        font-weight: 700;
-        font-size: 20px;
-    }
-    
-    &-description {
-        height: 68px;
-        overflow-y:hidden;
-        text-overflow: ellipsis;
-    }
+  &-title {
+    color: #14788F;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  
+  &-description {
+    height: 68px;
+    overflow-y:hidden;
+    text-overflow: ellipsis;
+  }
 
-    hr {
-        border: 1px solid #fafafa7d;
-        width: 100%;
-    }
+  hr {
+    border: 1px solid #fafafa7d;
+    width: 100%;
+  }
     
 }
