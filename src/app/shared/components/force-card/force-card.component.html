@@ -1,4 +1,4 @@
-<div class="d-flex flex-column align-items-center justify-content-center card force-card mb-5 p-2">
+<div *ngIf="cardItem" class="d-flex flex-column align-items-center justify-content-center card force-card mb-5 p-2">
   <i class="{{cardItem.icon}} fa-5x"></i>
   <span class="d-block force-card-title">{{cardItem.title}}</span>
   <span class="d-block force-card-description">{{cardItem.description}}</span>
