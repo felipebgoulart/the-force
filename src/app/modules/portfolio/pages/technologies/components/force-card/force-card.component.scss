@@ -1,0 +1,28 @@
+.force-card {
+  width: 360px;
+  min-height: 225px;
+  max-height: 225px;
+  text-align: left;
+  color: #fafafa;
+  opacity: 0.7;
+  transition: 1s;
+
+  &-title {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  
+  &-description {
+    font-size: 16px;
+    font-weight: 300;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-family: sans-serif;
+  }
+}
+
+.force-card:hover {
+  opacity: 1;
+  transition: 1s;
+  color: #fafafa;
+}

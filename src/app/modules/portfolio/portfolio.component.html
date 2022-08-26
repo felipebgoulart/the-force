@@ -1,0 +1,35 @@
+<div>
+
+  <app-force-header
+    (headerOptionEmitter)="navigateToPage($event)"
+    [(selectedViewport)]="selectedViewport"
+    [(opacityNavbar)]="opacityNavbar"
+  ></app-force-header>
+
+  <div id='home' #home>
+    <app-home></app-home>
+  </div>
+  
+  <section id='about' #about>
+    <app-about
+      (navigateToAnchor)="navigateToPage($event)"
+    ></app-about>
+  </section>
+
+  <section id='technologies' #technologies>
+    <app-technologies></app-technologies>
+  </section>
+
+  <section id='resume' #resume>
+    <app-resume></app-resume>
+  </section>
+
+  <section id='catalogue' #catalogue>
+    <app-catalogue></app-catalogue>
+  </section>
+
+  <section id='contact' #contact>
+    <app-contact></app-contact>
+  </section>
+
+</div>

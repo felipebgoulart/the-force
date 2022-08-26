@@ -1,0 +1,10 @@
+<div [ngClass]="opacityNavbar ? '' : 'showNavbar'" class="d-flex justify-content-end align-items-center pr-5 header">
+    <span
+        #item
+        id={{option}}
+        *ngFor="let option of menuOptions; let i = index"
+        class="mr-3" (click)="onOptionSelected(option)"
+    >
+    {{option}}
+    </span>
+</div>
