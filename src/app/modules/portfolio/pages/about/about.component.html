@@ -1,0 +1,33 @@
+<section class="about">
+  
+  <div class="row align-items-center h-100 w-100 about-content">
+    <div class="col-7 pl-5 align-items-center about-myself">
+      <h2 class="d-block pt-5">
+        Hello, I am Felipe
+      </h2>
+
+      <h4 class="d-block pt-1 about-myself-job">
+        front-end developer from São Paulo
+      </h4>
+
+      <p class="d-block pt-3 about-myself-description">
+        I am a freelancer based in New York, USA, and I'm very passionate and dedicated to my work. With 7 years experience as a professional Full-Stack Web Developer, I have acquired the skills necessary to build great and premium websites. <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
+      </p>
+
+      <div class="mt-5 row about-myself-btn">
+        <div class="mr-4">
+          <app-force-button
+            [text]="'My Resume'"
+          ></app-force-button>
+        </div>
+
+        <app-force-button
+          [text]="'Get In Touch'"
+          (click)="onGetInTouchClick()"
+        ></app-force-button>
+      </div>
+    </div>
+  </div>
+
+</section>

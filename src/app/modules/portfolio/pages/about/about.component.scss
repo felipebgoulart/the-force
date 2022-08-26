@@ -1,0 +1,63 @@
+.about {
+    height: calc(100vh - 80px);
+    min-height: 100vh;
+    background-color: #0e1116;
+    padding-top: 62px;
+
+    &-content {
+        height: inherit;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 42px;
+        padding-bottom: 42px;
+    }
+
+    &-picture {
+        background-image: url('../../../../../assets/images/picture.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        outline: 6px solid #0000009f;
+        outline-offset: -6px;
+
+        &-overlay {
+            background-color: #0000009f;
+            transition: 1s;
+        }
+
+        &-overlay:hover {
+            background-color: transparent;
+            transition: 1s;
+        }
+    }
+
+    &-myself {
+        font-size: 38px;
+        font-weight: bold;
+        color: #fafafa;
+        font-family: 'DM Sans', sans-serif;
+
+        &-job {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fafafab3;
+        }
+        
+        &-description {
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        &-contact {
+            font-size: 16px;
+            font-weight: bold;
+
+            &-key {
+                color: #14788F;
+            }
+        }
+
+        &-btn {
+            bottom: 0;
+        }
+    }
+}

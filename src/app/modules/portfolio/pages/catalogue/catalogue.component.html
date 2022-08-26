@@ -1,0 +1,18 @@
+<div class="catalogue">
+  <div class="p-5">
+    <span class="d-block catalogue-title">Catalogue</span>
+
+    <div class="mt-5">
+      <app-catalog-selector></app-catalog-selector>
+    </div>
+
+    <div class="mt-5 row justify-content-between">
+      <div *ngFor="let repo of repositories" class="col-4 mb-5">
+        <app-catalog-item
+          [repository]="repo"
+        ></app-catalog-item>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<section class="technologies">
+  <div class="p-5">
+    <span class="d-block pb-5 technologies-title">Services</span>
+
+    <div class="d-flex justify-content-between flex-wrap py-3">
+      <app-force-card
+        *ngFor="let tech of technologies"
+        [cardItem]="tech"
+      ></app-force-card>
+    </div>
+  </div>
+</section>

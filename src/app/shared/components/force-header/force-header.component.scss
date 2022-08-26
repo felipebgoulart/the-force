@@ -1,0 +1,27 @@
+.header {
+    height: 60px;
+    position: fixed;
+    background-color: transparent;
+    width: 100%;
+    z-index: 2;
+    color: #b7b7b7;
+    transition: .2s ease-out;
+
+    span {
+        cursor: pointer;
+    }
+
+    span.selected {
+        color: #fafafa;
+    }
+
+}
+
+.showNavbar {
+    background-color: #020408;
+    transition: .2s ease-in;
+
+    span.selected {
+        color: #fafafa;
+    }
+}
