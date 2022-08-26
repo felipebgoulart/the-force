@@ -1,4 +1,4 @@
-<div class="p-2 catalog-item">
+<div *ngIf="repository" class="p-2 catalog-item">
   <div class="d-flex flex-column justify-content-center align-items-center catalog-item-overlay">
     <span class="d-block catalog-item-overlay-title">{{repository.name}}</span>
     <span class="d-block catalog-item-overlay-type">{{repository.category}}</span>
