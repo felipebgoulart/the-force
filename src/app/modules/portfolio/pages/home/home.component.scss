@@ -9,13 +9,15 @@
     .social {
       color: #fafafa;
       font-family: 'DM Sans';
+      position: absolute;
+      top: 30%;
       
       span {
         writing-mode: vertical-lr;
         font-size: 28px;
       }
 
-      div {
+      div.hr {
         height: 34px;
         background-color: #fafafa;
         width: 1px;
@@ -74,4 +76,30 @@
 @keyframes typewriter{
   from{width: 0;}
   to{width: 9.5em;}
+}
+
+
+@media (max-width: 765px) {
+  .home {
+    .social {
+      position: relative;
+      z-index: 2;
+
+      span {
+        writing-mode: horizontal-tb;
+      }
+
+      div.hr {
+        height: 0px;
+      }
+    }
+
+    .presentation {
+      height: 75%;
+
+      &-name {
+        font-size: 42px;
+      }
+    }
+  }
 }

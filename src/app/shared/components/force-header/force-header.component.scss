@@ -7,14 +7,17 @@
     color: #b7b7b7;
     transition: .2s ease-out;
 
-    span {
+    &-item {
         cursor: pointer;
     }
 
-    span.selected {
+    &-item.selected {
         color: #fafafa;
     }
 
+    i {
+        color: #fafafa;
+    }
 }
 
 .showNavbar {
@@ -23,5 +26,28 @@
 
     span.selected {
         color: #fafafa;
+    }
+}
+
+@media (max-width: 765px) {
+    .header {
+        position: fixed;
+        background-color: transparent;
+        width: 100%;
+        z-index: 2;
+        color: #b7b7b7;
+        transition: .2s ease-out;
+
+        &-menu {
+            background-color: #020408;
+        }
+
+        span.selected {
+            color: red;
+        }
+
+        i {
+            color: #fafafa;
+        }
     }
 }
