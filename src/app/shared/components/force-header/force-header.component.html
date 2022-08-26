@@ -1,10 +1,30 @@
-<div [ngClass]="opacityNavbar ? '' : 'showNavbar'" class="d-flex justify-content-end align-items-center pr-5 header">
-    <span
-        #item
-        id={{option}}
-        *ngFor="let option of menuOptions; let i = index"
-        class="mr-3" (click)="onOptionSelected(option)"
+<div
+    [ngClass]="opacityNavbar ? '' : 'showNavbar'"
+    class="d-flex flex-column flex-md-row justify-content-md-end align-items-center pr-md-5 header"
+    [ngClass]="isOpened ? 'header-menu h-100' : ''"
+>
+    <div
+        *ngIf="innerWidth < 765"
+        class="align-self-end position-sticky p-3"
+        (click)="toggleMenu()"
     >
-    {{option}}
-    </span>
+        <i *ngIf="isOpened" class="fa-solid fa-xmark"></i>
+        <i *ngIf="!isOpened" class="fa-solid fa-bars"></i>
+    </div>
+
+        <div
+            #item
+            id={{option}}
+            *ngFor="let option of menuOptions; let i = index"
+            class="header-item"
+        >
+            <div
+                *ngIf="isOpened || innerWidth > 765"
+                (click)="onOptionSelected(option)"
+                class="mr-3 d-sm-block p-md-0 p-4"
+            >
+                {{option}}
+            </div>
+        </div>
+
 </div>

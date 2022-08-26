@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChildren } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-force-header',
@@ -6,6 +6,11 @@ import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, 
   styleUrls: ['./force-header.component.scss']
 })
 export class ForceHeaderComponent implements OnInit, OnChanges {
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.innerWidth = window.innerWidth;
+  }
 
   @ViewChildren('item') items!: QueryList<ElementRef>;
 
@@ -17,12 +22,15 @@ export class ForceHeaderComponent implements OnInit, OnChanges {
   @Output('opacityNavbarChange') opacityNavbarChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public menuOptions: string[] = [];
+  public isOpened: boolean = false;
+  public innerWidth: any;
 
   constructor(
     private renderer: Renderer2
   ) { }
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
     this.menuOptions.push(
       'home',
       'about',
@@ -49,11 +57,18 @@ export class ForceHeaderComponent implements OnInit, OnChanges {
 
   public onOptionSelected(fragment: string) {
     this.headerOptionEmitter.emit(fragment);
-    
+
+    if (this.innerWidth <= 765) {
+      this.toggleMenu();
+    }
   }
 
   public isOptionSelected(index: number) {
     return this.menuOptions[index] == this.selectedViewport;
+  }
+
+  public toggleMenu(): void {
+    this.isOpened = !this.isOpened;
   }
 
 }
