@@ -23,6 +23,13 @@ export class CatalogueComponent implements OnInit {
       this.reposotory,
       this.reposotory,
       this.reposotory,
+      this.reposotory,
+      this.reposotory,
+      this.reposotory,
+      this.reposotory,
+      this.reposotory,
+      this.reposotory,
+      this.reposotory,
     )
   }
 
