@@ -2,16 +2,16 @@
   <div class="p-5">
     <span class="d-block catalogue-title">Catalogue</span>
 
-    <div class="mt-5">
+    <div class="my-5">
       <app-catalog-selector></app-catalog-selector>
     </div>
 
-    <div class="mt-5 row justify-content-between">
-      <div *ngFor="let repo of repositories" class="col-4 mb-5">
-        <app-catalog-item
-          [repository]="repo"
-        ></app-catalog-item>
-      </div>
+    <div class="d-flex justify-content-start flex-wrap w-100 h-auto">
+      <app-catalog-item
+        *ngFor="let repo of repositories"
+        [repository]="repo"
+        class="mr-3 mb-4 flex-grow-1"
+      ></app-catalog-item>
     </div>
 
   </div>
