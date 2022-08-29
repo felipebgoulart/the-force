@@ -11,6 +11,7 @@
       font-family: 'DM Sans';
       position: absolute;
       top: 30%;
+      z-index: 2;
       
       span {
         writing-mode: vertical-lr;
@@ -37,7 +38,6 @@
         width: 200px;
         border-radius: 50%;
         border: 3px solid #fafafa;
-        background-image: url('../../../../../assets/images/picture.jpeg');
         background-size: cover;
       }
       
