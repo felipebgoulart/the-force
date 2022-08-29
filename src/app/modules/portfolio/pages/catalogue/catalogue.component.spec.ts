@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { GithubService } from '../../services/github.service';
 
 import { CatalogueComponent } from './catalogue.component';
 
@@ -8,7 +10,9 @@ describe('CatalogueComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CatalogueComponent ]
+      declarations: [ CatalogueComponent ],
+      imports: [ HttpClientModule ],
+      providers: [ GithubService ]
     })
     .compileComponents();
   });
