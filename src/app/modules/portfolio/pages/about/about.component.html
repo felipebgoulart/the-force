@@ -3,27 +3,28 @@
   <div class="row m-0 align-items-md-center w-100 px-4 about-content">
     <div class="col-12 col-md-6 about-myself">
       <h2 class="d-block">
-        Hello, I am Felipe
+        Olá, Eu sou Felipe
       </h2>
 
       <h4 class="d-block mt-4 about-myself-job">
-        front-end developer from São Paulo
+        Full-Stack developer de São Paulo
       </h4>
 
       <p class="d-block mt-3 about-myself-description">
-        I am a freelancer based in New York, USA, and I'm very passionate and dedicated to my work. With 7 years experience as a professional Full-Stack Web Developer, I have acquired the skills necessary to build great and premium websites. <br><br>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
+        Sou desenvolvedor residente de Indaiatuba, Brasil, e sou muito apaixonado e dedicado ao meu trabalho. Com 2 anos de experiência como desenvolvedor Full-Stack profissional, adquiri as habilidades necessárias para construir softwares. <br><br>
+        Sou autodidata e estou mergulhando em novas tecnologias, com entregas em aplicativos móveis híbridos desenvolvidos em Flutter. Dentre minhas habilidades tecnológicas, familiarizado com frameworks web (Angular, React), mobile (Flutter, Android), Services (NodeJS, Camel, Django Rest Framework)
       </p>
 
       <div class="row m-0 about-myself-btn">
         <div class="mr-4 mb-3">
           <app-force-button
-            [text]="'My Resume'"
+            [text]="'Meu currículo'"
+            (click)="downloadCV()"
           ></app-force-button>
         </div>
 
         <app-force-button
-          [text]="'Get In Touch'"
+          [text]="'Entrar em contato'"
           (click)="onGetInTouchClick()"
         ></app-force-button>
       </div>

@@ -32,12 +32,12 @@ export class ForceHeaderComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
     this.menuOptions.push(
-      'home',
-      'about',
-      'technologies',
-      'resume',
-      'catalogue',
-      'contact'
+      'Início',
+      'Sobre',
+      'Serviços',
+      'Currículo',
+      'Catálogo',
+      'Contato'
     )
   }
   ngOnChanges(changes: SimpleChanges): void {
