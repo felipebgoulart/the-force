@@ -15,7 +15,11 @@ export class AboutComponent implements OnInit {
   }
 
   public onGetInTouchClick(): void {
-    this.navigateToAnchor.emit('contact');
+    this.navigateToAnchor.emit('Contato');
+  }
+
+  public downloadCV() {
+    window.open('https://github.com/Hideki-Goulart/the-force/raw/develop/Felipe%20Barbosa%20Goulart%20-%20CV.pdf', '_blank')
   }
 
 }

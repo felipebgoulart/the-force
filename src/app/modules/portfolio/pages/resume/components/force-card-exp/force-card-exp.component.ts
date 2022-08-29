@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ExperienceItemModel } from 'src/app/shared/models/experience-item-model';
 
 @Component({
   selector: 'app-force-card-exp',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./force-card-exp.component.scss']
 })
 export class ForceCardExpComponent implements OnInit {
+
+  @Input('experience') experience!: ExperienceItemModel;
 
   constructor() { }
 

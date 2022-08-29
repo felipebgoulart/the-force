@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, QueryList, ViewChildren } from '@angular/core';
 
-const regions: string = 'home,about,technologies,resume,catalogue,contact';
+const regions: string = 'Início,Sobre,Serviços,Currículo,Catálogo,Contato';
 
 @Component({
   selector: 'app-portfolio',
@@ -15,7 +15,7 @@ export class PortfolioComponent {
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event): void {
 
-    const homeElement: ElementRef<HTMLElement> | undefined = this.sections.toArray().find(element => element.nativeElement.id == 'home');
+    const homeElement: ElementRef<HTMLElement> | undefined = this.sections.toArray().find(element => element.nativeElement.id == 'Início');
 
     const activeSection = this.sections.toArray()
       .findIndex(section => this.isElementInViewport(section.nativeElement));
