@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IGithubUserInterface } from '../../models/github-user-interface';
+import { GithubService } from '../../services/github.service';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public github: string = 'https://github.com/Hideki-Goulart';
   public linkedin: string = 'https://www.linkedin.com/in/felipe-goulart-a6a759152/';
+  public githubUser!: IGithubUserInterface;
 
-  constructor() { }
+  constructor(
+    private githubService: GithubService
+  ) {}
 
   ngOnInit(): void {
+    this.getGithubUser();
   }
 
-  goToLink(url: string){
+  private getGithubUser(): void {
+    this.githubService.getUserProfile()
+      .subscribe((user: IGithubUserInterface) => {
+        this.githubUser = user;
+      });
+  }
+
+  public goToLink(url: string): void {
     window.open(url, "_blank");
   }
 

@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, HostListener, QueryList, ViewChildren } from '@angular/core';
 
 const regions: string = 'home,about,technologies,resume,catalogue,contact';
 
@@ -13,7 +13,7 @@ export class PortfolioComponent {
   @ViewChildren(regions) sections!: QueryList<ElementRef<HTMLElement>>;
 
   @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event) {
+  onScroll(event: Event): void {
 
     const homeElement: ElementRef<HTMLElement> | undefined = this.sections.toArray().find(element => element.nativeElement.id == 'home');
 
@@ -44,12 +44,12 @@ export class PortfolioComponent {
 
   constructor() {}
 
-  public navigateToPage(id: string) {
+  public navigateToPage(id: string): void {
     const element: ElementRef<HTMLElement> | undefined = this.sections.find(element => element.nativeElement.id === id);
     element!.nativeElement.scrollIntoView({ behavior: "smooth", block: 'start', inline: 'end' });
   }
 
-  private isElementInViewport(el: any) {
+  private isElementInViewport(el: any): boolean {
     var top = el.offsetTop;
     var left = el.offsetLeft;
     var width = el.offsetWidth;

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IRepos } from 'src/app/modules/portfolio/models/repos-interface';
 import { RepositoryItemModel } from 'src/app/shared/models/reposiroty-item-model';
 
 @Component({
@@ -8,11 +9,15 @@ import { RepositoryItemModel } from 'src/app/shared/models/reposiroty-item-model
 })
 export class CatalogItemComponent implements OnInit {
 
-  @Input('repository') repository!: RepositoryItemModel;
+  @Input('repository') repository!: IRepos;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openPageUrl(url: string){
+    window.open(url, "_blank");
   }
 
 }
