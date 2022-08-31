@@ -2,12 +2,12 @@ name: CI / CD - Static Analysis
 
 on:
   pull_request:
-    types: [opened, reopened]
     branches:
       - 'develop'
 
 jobs:
   Static_Analysis:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     
     permissions:
