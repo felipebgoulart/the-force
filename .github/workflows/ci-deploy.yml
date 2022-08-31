@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  checkout:
     runs-on: ubuntu-latest
     concurrency: ci-${{github.ref}}
     steps:
@@ -21,8 +21,25 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+         
+  static_analysis:
+    needs: checkout
 
-      - name: Build
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: Homolog
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    - name: Tests
+        run: npm run test:prod
+
+  upload-atifact:
+    needs: static_analysis
+
+    - name: Build
         run: npm run build:prod
       
       - name: Upload artifact
