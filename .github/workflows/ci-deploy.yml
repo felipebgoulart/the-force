@@ -1,4 +1,4 @@
-name: CI / CD - the forcefolio
+name: CI / CD - Deployment
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  checkout:
+  Checkout:
     runs-on: ubuntu-latest
     concurrency: ci-${{github.ref}}
     steps:
@@ -21,9 +21,16 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-         
-  static_analysis:
-    needs: checkout
+
+      - name: Caching node modules
+        uses: actions/cache@v2
+        with:
+          path: "/home/runner/work/the-force/the-force/node_modules"
+          key: node-modules-${{ hashFiles('/home/runner/work/the-force/the-force/package.json') }}
+
+
+  Static_Analysis:
+    needs: Checkout
 
     permissions:
       pages: write
@@ -32,23 +39,46 @@ jobs:
     environment:
       name: Homolog
       url: ${{ steps.deployment.outputs.page_url }}
+    
+    runs-on: ubuntu-latest
+    steps:
 
-    - name: Tests
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Caching node modules
+        uses: actions/cache@v2
+        with:
+          path: "/home/runner/work/the-force/the-force/node_modules"
+          key: node-modules-${{ hashFiles('/home/runner/work/the-force/the-force/package.json') }}
+
+      - name: Tests
         run: npm run test:prod
 
-  upload-atifact:
-    needs: static_analysis
+  Upload_Artifact:
+    needs: Static_Analysis
 
-    - name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Caching node modules
+        uses: actions/cache@v2
+        with:
+          path: "/home/runner/work/the-force/the-force/node_modules"
+          key: node-modules-${{ hashFiles('/home/runner/work/the-force/the-force/package.json') }}
+
+      - name: Build
         run: npm run build:prod
-      
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: 'dist/the-force'
 
-  deploy:
-    needs: build
+  Deploy:
+    needs: Upload_Artifact
 
     permissions:
       pages: write
