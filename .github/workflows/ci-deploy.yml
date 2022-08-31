@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  checkout:
+  Checkout:
     runs-on: ubuntu-latest
     concurrency: ci-${{github.ref}}
     steps:
@@ -21,8 +21,8 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-         
-  static_analysis:
+
+  Static_Analysis:
     needs: checkout
 
     permissions:
@@ -36,7 +36,7 @@ jobs:
     - name: Tests
         run: npm run test:prod
 
-  upload-atifact:
+  Upload-atifact:
     needs: static_analysis
 
     - name: Build
@@ -47,7 +47,7 @@ jobs:
         with:
           path: 'dist/the-force'
 
-  deploy:
+  Deploy:
     needs: build
 
     permissions:
