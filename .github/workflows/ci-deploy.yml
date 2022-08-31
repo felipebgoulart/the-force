@@ -22,11 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # - uses: actions/upload-artifact@v2
-      #   with:
-      #     name: packageJson
-      #     path: /home/runner/work/the-force/the-force/package.json
-
       - name: Caching node modules
         uses: actions/cache@v2
         with:
@@ -65,6 +60,15 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Caching node modules
+        uses: actions/cache@v2
+        with:
+          path: "/home/runner/work/the-force/the-force/node_modules"
+          key: node-modules-${{ hashFiles('/home/runner/work/the-force/the-force/package.json') }}
+
       - name: Build
         run: npm run build:prod
 
