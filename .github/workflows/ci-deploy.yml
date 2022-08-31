@@ -48,7 +48,7 @@ jobs:
 
   Upload_Artifact:
     needs: Static_Analysis
-    
+
     runs-on: ubuntu-latest
     steps:
 
@@ -57,7 +57,7 @@ jobs:
 
       - uses: actions/download-artifact@v2
         with:
-          name: analysist
+          name: analysis
 
       - name: Build
         run: npm run build:prod
