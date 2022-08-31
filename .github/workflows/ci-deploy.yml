@@ -1,4 +1,4 @@
-name: CI / CD - the forcefolio
+name: CI / CD - Deploy Prod
 
 on:
   push:
@@ -21,9 +21,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-         
-      - name: Tests
-        run: npm run test:prod
 
       - name: Build
         run: npm run build:prod
