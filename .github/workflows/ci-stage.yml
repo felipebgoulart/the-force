@@ -9,6 +9,14 @@ on:
 jobs:
   Static_Analysis:
     runs-on: ubuntu-latest
+    
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: Homolog
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout
