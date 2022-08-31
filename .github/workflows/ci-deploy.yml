@@ -25,13 +25,13 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: packageJson
-          path: /home/runner/work/the-force/the-force/package.json
+          path: the-force/package.json
 
       - name : Cache
         uses: actions/cache@v2
         with:
-          path: "/home/runner/work/the-force/the-force/node_modules"
-          key: node-modules
+          path: "the-force/node_modules"
+          key: node-modules-${{ hashFiles('the-force/package.json') }}
 
   Static_Analysis:
     needs: Checkout
