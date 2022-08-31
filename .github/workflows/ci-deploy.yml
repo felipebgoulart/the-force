@@ -43,8 +43,8 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: analysist
-          path: ./
+          name: analysis
+          path: /home/runner/work/the-force/the-force/package.json
 
   Upload_Artifact:
     needs: Static_Analysis
