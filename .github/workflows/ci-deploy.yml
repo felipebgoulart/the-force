@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
   Static_Analysis:
-    needs: checkout
+    needs: Checkout
 
     permissions:
       pages: write
@@ -32,23 +32,27 @@ jobs:
     environment:
       name: Homolog
       url: ${{ steps.deployment.outputs.page_url }}
-
-    - name: Tests
+    
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tests
         run: npm run test:prod
 
-  Upload-atifact:
-    needs: static_analysis
-
-    - name: Build
+  Upload_Artifact:
+    needs: Static_Analysis
+    
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
         run: npm run build:prod
-      
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: 'dist/the-force'
 
   Deploy:
-    needs: build
+    needs: Upload_Artifact
 
     permissions:
       pages: write
