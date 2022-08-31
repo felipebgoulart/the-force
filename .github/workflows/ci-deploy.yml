@@ -27,6 +27,11 @@ jobs:
           name: packageJson
           path: /home/runner/work/the-force/the-force/package.json
 
+      - name : Cache
+        uses: actions/cache@v2
+        with:
+          path: "/home/runner/work/the-force/the-force/node_modules"
+
   Static_Analysis:
     needs: Checkout
 
