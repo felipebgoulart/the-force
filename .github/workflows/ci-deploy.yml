@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: analysis
+          name: packageJson
           path: /home/runner/work/the-force/the-force/package.json
 
   Static_Analysis:
@@ -46,7 +46,13 @@ jobs:
 
       - uses: actions/download-artifact@v2
         with:
-          name: analysis
+          name: packageJson
+      
+      - name: Set up node.js
+        uses: actions/setup-node@v3.3.0
+        with:
+          node-version: '14'
+          cache: 'npm'
 
       - name: Tests
         run: npm run test:prod
