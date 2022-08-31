@@ -1,8 +1,8 @@
-name: CI / CD - the forcefolio
+name: CI / CD - the forcefolio PROD
 
 on:
   push:
-    branches: [ "release/**" ]
+    branches: [ "release/prod" ]
   workflow_dispatch:
 
 jobs:
@@ -41,7 +41,7 @@ jobs:
       id-token: write
 
     environment:
-      name: github-pages
+      name: Production
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
