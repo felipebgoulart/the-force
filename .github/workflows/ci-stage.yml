@@ -2,7 +2,7 @@ name: CI / CD - Static Analysis
 
 on:
   pull_request:
-    types: [closed]
+    types: [opened, reopened]
     branches:
       - 'develop'
 
