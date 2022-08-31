@@ -1,4 +1,4 @@
-name: CI / CD - the forcefolio
+name: CI / CD - Deployment
 
 on:
   push:
@@ -13,12 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up node.js
-        uses: actions/setup-node@v3.3.0
-        with:
-          node-version: '14'
-          cache: 'npm'
-
   Static_Analysis:
     needs: Checkout
 
@@ -32,6 +26,12 @@ jobs:
     
     runs-on: ubuntu-latest
     steps:
+      - name: Set up node.js
+        uses: actions/setup-node@v3.3.0
+        with:
+          node-version: '14'
+          cache: 'npm'
+
       - name: Install dependencies
         run: npm ci
 
