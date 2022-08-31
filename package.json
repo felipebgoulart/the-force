@@ -1,11 +1,11 @@
 {
-  "name": "the-forcefolio",
-  "version": "1.8.0",
+  "name": "the-force",
+  "version": "1.8.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --base-href=/the-forcefolio && tar -zcvf github-pages.tar.gz dist/the-forcefolio/*",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:prod": "ng test --browsers=ChromeHeadless --watch=false --code-coverage",
