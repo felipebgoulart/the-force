@@ -26,11 +26,12 @@ jobs:
         with:
           name: packageJson
           path: /home/runner/work/the-force/the-force/package.json
-      
-      - uses: actions/upload-artifact@v2
+
+      - name: Caching node modules
+        uses: actions/cache@v2
         with:
-          name: nodeModules
-          path: /home/runner/work/the-force/the-force/node_modules
+          path: "/home/runner/work/the-force/the-force/node_modules"
+          key: node-modules-${{ hashFiles('/home/runner/work/the-force/the-force/package.json') }}
 
 
   Static_Analysis:
@@ -49,20 +50,10 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
-      
-      - name: Set up node.js
-        uses: actions/setup-node@v3.3.0
-        with:
-          node-version: '14'
-          cache: 'npm'
 
       - uses: actions/download-artifact@v2
         with:
           name: packageJson
-
-      - uses: actions/download-artifact@v2
-        with:
-          name: nodeModules
 
       - name: Tests
         run: npm run test:prod
