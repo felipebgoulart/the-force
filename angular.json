@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "the-forcefolio": {
+    "the-force": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "the-forcefolio:build:production"
+              "browserTarget": "the-force:build:production"
             },
             "development": {
-              "browserTarget": "the-forcefolio:build:development"
+              "browserTarget": "the-force:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "the-forcefolio:build"
+            "browserTarget": "the-force:build"
           }
         },
         "test": {
@@ -110,5 +110,5 @@
       }
     }
   },
-  "defaultProject": "the-forcefolio"
+  "defaultProject": "the-force"
 }

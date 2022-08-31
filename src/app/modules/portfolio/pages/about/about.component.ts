@@ -19,7 +19,7 @@ export class AboutComponent implements OnInit {
   }
 
   public downloadCV() {
-    window.open('https://github.com/Hideki-Goulart/the-forcefolio/raw/develop/Felipe%20Barbosa%20Goulart%20-%20CV.pdf', '_blank')
+    window.open('https://github.com/Hideki-Goulart/the-force/raw/develop/Felipe%20Barbosa%20Goulart%20-%20CV.pdf', '_blank')
   }
 
 }
