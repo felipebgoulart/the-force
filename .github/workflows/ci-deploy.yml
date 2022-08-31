@@ -22,10 +22,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - uses: actions/upload-artifact@v2
-        with:
-          name: packageJson
-          path: /home/runner/work/the-force/the-force/package.json
+      # - uses: actions/upload-artifact@v2
+      #   with:
+      #     name: packageJson
+      #     path: /home/runner/work/the-force/the-force/package.json
 
       - name: Caching node modules
         uses: actions/cache@v2
@@ -51,9 +51,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: actions/download-artifact@v2
+      - name: Caching node modules
+        uses: actions/cache@v2
         with:
-          name: packageJson
+          path: "/home/runner/work/the-force/the-force/node_modules"
+          key: node-modules-${{ hashFiles('/home/runner/work/the-force/the-force/package.json') }}
 
       - name: Tests
         run: npm run test:prod
