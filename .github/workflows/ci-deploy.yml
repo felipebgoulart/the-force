@@ -1,8 +1,8 @@
-name: CI / CD - the forcefolio PROD
+name: CI / CD - the forcefolio
 
 on:
   push:
-    branches: [ "release/prod" ]
+    branches: [ "prod" ]
   workflow_dispatch:
 
 jobs:
@@ -31,7 +31,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: 'dist/the-forcefolio'
+          path: 'dist/the-force'
 
   deploy:
     needs: build

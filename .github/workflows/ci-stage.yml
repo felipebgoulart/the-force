@@ -1,0 +1,27 @@
+name: CI / CD - Static Analysis
+
+on:
+  pull_request:
+    types: [opened, reopened]
+    branches:
+      - 'develop'
+
+jobs:
+  Static_Analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up node.js
+        uses: actions/setup-node@v3.3.0
+        with:
+          node-version: '14'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+         
+      - name: Tests
+        run: npm run test:prod
