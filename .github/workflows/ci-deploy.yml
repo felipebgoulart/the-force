@@ -43,16 +43,16 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
-
-      - uses: actions/download-artifact@v2
-        with:
-          name: packageJson
       
       - name: Set up node.js
         uses: actions/setup-node@v3.3.0
         with:
           node-version: '14'
           cache: 'npm'
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: packageJson
 
       - name: Tests
         run: npm run test:prod
