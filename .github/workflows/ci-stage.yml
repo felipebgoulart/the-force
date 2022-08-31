@@ -3,8 +3,8 @@ name: CI / CD - Static Analysis
 on:
   pull_request:
     types: [opened, reopened]
-  branches:
-    - 'develop'
+    branches:
+      - 'develop'
 
 jobs:
   Static_Analysis:
