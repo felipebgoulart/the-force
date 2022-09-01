@@ -4,7 +4,7 @@
 
 Esse é meu portifólio pessoal
 
-![An old rock in the desert](/src/assets/images/logo.png "Shiprock, New Mexico by Beau Rogers")
+![An old rock in the desert](social.png "Shiprock, New Mexico by Beau Rogers")
 
 
 ## Overview
