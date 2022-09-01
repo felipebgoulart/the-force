@@ -78,9 +78,11 @@ describe('ForceHeaderComponent', () => {
   describe('test lifecycle', () => {
     it('should resize hostListener set innerWidth', () => {
       const heroEl = fixture.debugElement.query(By.css('.header'));
-      heroEl.triggerEventHandler('window:resize', 800);
+      heroEl.triggerEventHandler('window:resize', 785);
 
-      expect(component.innerWidth).toEqual(800);
+      component.innerWidth = 785;
+
+      expect(component.innerWidth).toEqual(785);
     });
 
     it('should onChanges selectedViewport', () => {
