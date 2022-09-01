@@ -2,10 +2,14 @@
   *ngIf="repository"
   class="p-2 catalog-item"
   [style.background-image]="'url(' + repository.image_url + ')'"
-  (click)="openPageUrl(repository.html_url)"
->
-  <div class="d-flex flex-column justify-content-center align-items-center catalog-item-overlay">
-    <span class="d-block catalog-item-overlay-title">{{repository.name}}</span>
-    <span class="d-block catalog-item-overlay-type">{{repository.description}}</span>
+  (click)="openPageUrl(repository.html_url)">
+  <div
+    class="d-flex flex-column justify-content-center align-items-center catalog-item-overlay">
+    <span class="d-block catalog-item-overlay-title">{{
+      repository.name
+    }}</span>
+    <span class="d-block catalog-item-overlay-type">{{
+      repository.description
+    }}</span>
   </div>
 </div>

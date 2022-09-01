@@ -1,23 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IRepos } from 'src/app/modules/portfolio/models/repos-interface';
-import { RepositoryItemModel } from 'src/app/shared/models/reposiroty-item-model';
+import { IRepos } from 'src/app/modules/portfolio/interfaces/repos-interface';
 
 @Component({
   selector: 'app-catalog-item',
   templateUrl: './catalog-item.component.html',
-  styleUrls: ['./catalog-item.component.scss']
+  styleUrls: ['./catalog-item.component.scss'],
 })
 export class CatalogItemComponent implements OnInit {
-
   @Input('repository') repository!: IRepos;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  public openPageUrl(url: string): void {
+    window.open(url, '_blank');
   }
-
-  openPageUrl(url: string){
-    window.open(url, "_blank");
-  }
-
 }

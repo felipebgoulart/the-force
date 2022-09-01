@@ -2,7 +2,7 @@ name: CI / CD - Deployment
 
 on:
   push:
-    branches: [ "prod" ]
+    branches: ['prod']
   workflow_dispatch:
 
 jobs:
@@ -25,9 +25,8 @@ jobs:
       - name: Caching node modules
         uses: actions/cache@v2
         with:
-          path: "/home/runner/work/the-force/the-force/node_modules"
+          path: '/home/runner/work/the-force/the-force/node_modules'
           key: node-modules-${{ hashFiles('/home/runner/work/the-force/the-force/package.json') }}
-
 
   Static_Analysis:
     needs: Checkout
@@ -39,21 +38,29 @@ jobs:
     environment:
       name: Homolog
       url: ${{ steps.deployment.outputs.page_url }}
-    
+
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Caching node modules
         uses: actions/cache@v2
         with:
-          path: "/home/runner/work/the-force/the-force/node_modules"
+          path: '/home/runner/work/the-force/the-force/node_modules'
           key: node-modules-${{ hashFiles('/home/runner/work/the-force/the-force/package.json') }}
 
       - name: Tests
         run: npm run test:prod
+
+      - uses: codecov/codecov-action@v3
+        with:
+          directory: ./coverage/
+          flags: unittests
+          name: codecov-umbrella
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          verbose: true
 
   Upload_Artifact:
     needs: Static_Analysis
@@ -66,7 +73,7 @@ jobs:
       - name: Caching node modules
         uses: actions/cache@v2
         with:
-          path: "/home/runner/work/the-force/the-force/node_modules"
+          path: '/home/runner/work/the-force/the-force/node_modules'
           key: node-modules-${{ hashFiles('/home/runner/work/the-force/the-force/package.json') }}
 
       - name: Build
@@ -93,10 +100,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        
+
       - name: Setup Pages
         uses: actions/configure-pages@v1
-          
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1

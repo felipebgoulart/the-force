@@ -1,14 +1,28 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChildren } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  QueryList,
+  Renderer2,
+  SimpleChanges,
+  ViewChildren,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'app-force-header',
   templateUrl: './force-header.component.html',
-  styleUrls: ['./force-header.component.scss']
+  styleUrls: ['./force-header.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ForceHeaderComponent implements OnInit, OnChanges {
-
   @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
+  onResize(event: Event) {
     this.innerWidth = window.innerWidth;
   }
 
@@ -17,17 +31,20 @@ export class ForceHeaderComponent implements OnInit, OnChanges {
   @Input('selectedViewport') selectedViewport!: string;
   @Input('opacityNavbar') opacityNavbar!: boolean;
 
-  @Output('headerOptionEmitter') headerOptionEmitter: EventEmitter<string> = new EventEmitter<string>();
-  @Output('selectedViewportChange') selectedViewportChange: EventEmitter<string> = new EventEmitter<string>();
-  @Output('opacityNavbarChange') opacityNavbarChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output('headerOptionEmitter') headerOptionEmitter: EventEmitter<string> =
+    new EventEmitter<string>();
+  @Output('selectedViewportChange')
+  selectedViewportChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output('opacityNavbarChange') opacityNavbarChange: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
 
   public menuOptions: string[] = [];
   public isOpened: boolean = false;
   public innerWidth: any;
 
-  constructor(
-    private renderer: Renderer2
-  ) { }
+  constructor(private renderer: Renderer2) {
+    this.onResize(new Event('resize'));
+  }
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
@@ -38,19 +55,25 @@ export class ForceHeaderComponent implements OnInit, OnChanges {
       'Currículo',
       'Catálogo',
       'Contato'
-    )
+    );
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (this.items && changes.selectedViewport) {
-      var oldEl: any = this.items.find(element => element.nativeElement.id == changes.selectedViewport.previousValue);
-      var newEl: any = this.items.find(element => element.nativeElement.id == changes.selectedViewport.currentValue);
-      
+      var oldEl: any = this.items.find(
+        element =>
+          element.nativeElement.id == changes.selectedViewport.previousValue
+      );
+      var newEl: any = this.items.find(
+        element =>
+          element.nativeElement.id == changes.selectedViewport.currentValue
+      );
+
       if (oldEl) {
-        this.renderer.removeClass(oldEl.nativeElement, 'selected')
+        this.renderer.removeClass(oldEl.nativeElement, 'selected');
       }
 
       if (newEl) {
-        this.renderer.addClass(newEl.nativeElement, 'selected')
+        this.renderer.addClass(newEl.nativeElement, 'selected');
       }
     }
   }
@@ -63,12 +86,17 @@ export class ForceHeaderComponent implements OnInit, OnChanges {
     }
   }
 
-  public isOptionSelected(index: number) {
+  public isOptionSelected(index: number): boolean {
     return this.menuOptions[index] == this.selectedViewport;
   }
 
   public toggleMenu(): void {
     this.isOpened = !this.isOpened;
-  }
 
+    if (this.isOpened) {
+      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+    } else {
+      this.renderer.removeStyle(document.body, 'overflow');
+    }
+  }
 }

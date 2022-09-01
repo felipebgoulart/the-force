@@ -1,5 +1,4 @@
 .force-card {
-  max-width: 360px;
   min-height: 225px;
   max-height: 225px;
   text-align: left;
@@ -8,11 +7,19 @@
   opacity: 0.7;
   transition: 1s;
 
+  .Flutter {
+    fill: #d0d0d0;
+  }
+
+  .Camel {
+    fill: #d0d0d0;
+  }
+
   &-title {
     font-size: 18px;
     font-weight: 400;
   }
-  
+
   &-description {
     font-size: 16px;
     font-weight: 300;
@@ -26,4 +33,12 @@
   opacity: 1;
   transition: 1s;
   color: #fafafa;
+
+  .Flutter {
+    fill: #47c5fb;
+  }
+
+  .Camel {
+    fill: #ff9d00;
+  }
 }

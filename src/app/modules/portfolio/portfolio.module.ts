@@ -11,11 +11,8 @@ import { CatalogueModule } from './pages/catalogue/catalogue.module';
 import { ResumeModule } from './pages/resume/resume.module';
 import { ContactModule } from './pages/contact/contact.module';
 
-
 @NgModule({
-  declarations: [
-    PortfolioComponent,
-  ],
+  declarations: [PortfolioComponent],
   imports: [
     CommonModule,
     PortfolioRoutingModule,
@@ -25,8 +22,8 @@ import { ContactModule } from './pages/contact/contact.module';
     TechnologiesModule,
     ResumeModule,
     CatalogueModule,
-    ContactModule
+    ContactModule,
   ],
-  exports: [PortfolioComponent]
+  exports: [PortfolioComponent],
 })
-export class PortfolioModule { }
+export class PortfolioModule {}

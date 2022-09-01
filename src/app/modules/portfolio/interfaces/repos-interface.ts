@@ -1,5 +1,4 @@
 export interface IRepos {
-
   id: string;
   name: string;
   description: string;
@@ -9,6 +8,5 @@ export interface IRepos {
   default_branch: string;
   languages_url: string;
   image_url: string;
-  languages: object
-
+  languages: object;
 }

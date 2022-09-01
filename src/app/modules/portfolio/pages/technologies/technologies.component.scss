@@ -1,16 +1,16 @@
 .technologies {
-    min-height: calc(100vh - 80px);
-    width: 100%;
-    padding-top: 62px;
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  padding-top: 62px;
+  background-color: #1a1b21;
+
+  &-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fafafa;
+  }
+
+  &-list {
     background-color: #1a1b21;
-
-    &-title {
-        font-size: 36px;
-        font-weight: 700;
-        color: #fafafa;
-    }
-
-    &-list {
-        background-color: #1a1b21;
-    }
+  }
 }

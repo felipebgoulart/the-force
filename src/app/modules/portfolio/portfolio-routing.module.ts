@@ -5,16 +5,16 @@ import { PortfolioComponent } from './portfolio.component';
 const routes: Routes = [
   {
     path: '',
-    component: PortfolioComponent
+    component: PortfolioComponent,
   },
   {
     path: '/portfolio',
-    component: PortfolioComponent
-  }
+    component: PortfolioComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PortfolioRoutingModule { }
+export class PortfolioRoutingModule {}
