@@ -33,11 +33,3 @@ jobs:
 
       - name: Tests
         run: npm run test:prod
-
-      - uses: codecov/codecov-action@v3
-        with:
-          flags: unittests
-          name: codecov-umbrella
-          token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
-          verbose: true
