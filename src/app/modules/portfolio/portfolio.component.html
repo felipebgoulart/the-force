@@ -1,35 +1,30 @@
 <div>
-
   <app-force-header
     (headerOptionEmitter)="navigateToPage($event)"
     [(selectedViewport)]="selectedViewport"
-    [(opacityNavbar)]="opacityNavbar"
-  ></app-force-header>
+    [(opacityNavbar)]="opacityNavbar"></app-force-header>
 
-  <div id='Início' #Início>
+  <div id="Início" #Início>
     <app-home></app-home>
   </div>
-  
-  <section id='Sobre' #Sobre>
-    <app-about
-      (navigateToAnchor)="navigateToPage($event)"
-    ></app-about>
+
+  <section id="Sobre" #Sobre>
+    <app-about (navigateToAnchor)="navigateToPage($event)"></app-about>
   </section>
 
-  <section id='Serviços' #Serviços>
+  <section id="Serviços" #Serviços>
     <app-technologies></app-technologies>
   </section>
 
-  <section id='Currículo' #Currículo>
+  <section id="Currículo" #Currículo>
     <app-resume></app-resume>
   </section>
 
-  <section id='Catálogo' #Catálogo>
+  <section id="Catálogo" #Catálogo>
     <app-catalogue></app-catalogue>
   </section>
 
-  <section id='Contato' #Contato>
+  <section id="Contato" #Contato>
     <app-contact></app-contact>
   </section>
-
 </div>

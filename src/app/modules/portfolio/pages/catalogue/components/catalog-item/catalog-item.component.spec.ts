@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CatalogItemComponent } from './catalog-item.component';
@@ -8,9 +9,9 @@ describe('CatalogItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CatalogItemComponent ]
-    })
-    .compileComponents();
+      declarations: [CatalogItemComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +22,12 @@ describe('CatalogItemComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should open url catalog', () => {
+    const windowSpy = spyOn(window, 'open');
+    component.openPageUrl('githubUrl');
+
+    expect(windowSpy).toHaveBeenCalledOnceWith('githubUrl', '_blank');
   });
 });

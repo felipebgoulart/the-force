@@ -8,14 +8,20 @@ describe('ForceCardExpComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ForceCardExpComponent ]
-    })
-    .compileComponents();
+      declarations: [ForceCardExpComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ForceCardExpComponent);
     component = fixture.componentInstance;
+
+    component.experience = {
+      job: '',
+      description: '',
+      period: '',
+    };
+
     fixture.detectChanges();
   });
 

@@ -5,14 +5,14 @@
   color: #fafafaac;
 
   &-title {
-    color: #14788F;
+    color: #14788f;
     font-weight: 700;
     font-size: 20px;
   }
-  
+
   &-description {
     height: 68px;
-    overflow-y:hidden;
+    overflow-y: hidden;
     text-overflow: ellipsis;
   }
 
@@ -20,5 +20,4 @@
     border: 1px solid #fafafa7d;
     width: 100%;
   }
-    
 }
