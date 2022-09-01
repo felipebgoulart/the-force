@@ -1,17 +1,31 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { cardItem } from '../../../../../../shared/models/card-item-model';
+import { Component, ElementRef, Input, OnInit, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
+import { IcardItem } from '../../interfaces/card-item-interface';
 
 @Component({
   selector: 'app-force-card',
   templateUrl: './force-card.component.html',
-  styleUrls: ['./force-card.component.scss']
+  styleUrls: ['./force-card.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ForceCardComponent implements OnInit {
 
-  @Input('cardItem') cardItem!: cardItem;
+  @ViewChild('cardItemChild') cardItemChild!: ElementRef;
+  
+  @Input('cardItem') cardItem!: IcardItem;
 
-  constructor() {}
+  constructor(
+    private renderer: Renderer2
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  public onMouseOver(): void {
+    this.renderer.setStyle(this.cardItemChild.nativeElement, 'color', this.cardItem.color);
+    
+  }
+
+  public onMouseOut(): void {
+    this.renderer.removeStyle(this.cardItemChild.nativeElement, 'color');
+  }
 
 }

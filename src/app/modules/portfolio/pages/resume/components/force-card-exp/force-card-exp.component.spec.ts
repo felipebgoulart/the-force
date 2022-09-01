@@ -16,6 +16,13 @@ describe('ForceCardExpComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ForceCardExpComponent);
     component = fixture.componentInstance;
+
+    component.experience = {
+      job: '',
+      description: '',
+      period: ''
+    };
+
     fixture.detectChanges();
   });
 

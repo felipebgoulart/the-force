@@ -1,4 +1,4 @@
-name: CI / CD - the forcefolio
+name: CI / CD - Deployment
 
 on:
   push:
@@ -22,6 +22,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Caching node modules
+        uses: actions/cache@v2
+        with:
+          path: "/home/runner/work/the-force/the-force/node_modules"
+          key: node-modules-${{ hashFiles('/home/runner/work/the-force/the-force/package.json') }}
+
+
   Static_Analysis:
     needs: Checkout
 
@@ -35,14 +42,33 @@ jobs:
     
     runs-on: ubuntu-latest
     steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Caching node modules
+        uses: actions/cache@v2
+        with:
+          path: "/home/runner/work/the-force/the-force/node_modules"
+          key: node-modules-${{ hashFiles('/home/runner/work/the-force/the-force/package.json') }}
+
       - name: Tests
         run: npm run test:prod
 
   Upload_Artifact:
     needs: Static_Analysis
-    
+
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Caching node modules
+        uses: actions/cache@v2
+        with:
+          path: "/home/runner/work/the-force/the-force/node_modules"
+          key: node-modules-${{ hashFiles('/home/runner/work/the-force/the-force/package.json') }}
+
       - name: Build
         run: npm run build:prod
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ExperienceItemModel } from 'src/app/shared/models/experience-item-model';
+import { IExperienceItem } from 'src/app/modules/portfolio/pages/resume/models/experience-item-model';
 
 @Component({
   selector: 'app-force-card-exp',
@@ -8,7 +8,7 @@ import { ExperienceItemModel } from 'src/app/shared/models/experience-item-model
 })
 export class ForceCardExpComponent implements OnInit {
 
-  @Input('experience') experience!: ExperienceItemModel;
+  @Input('experience') experience!: IExperienceItem;
 
   constructor() { }
 

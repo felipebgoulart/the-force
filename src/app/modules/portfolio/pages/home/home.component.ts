@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IGithubUserInterface } from '../../models/github-user-interface';
+import { IGithubUserInterface } from '../../interfaces/github-user-interface';
 import { GithubService } from '../../services/github.service';
 
 @Component({

@@ -8,6 +8,11 @@ const routes: Routes = [
     redirectTo: 'portfolio'
   },
   {
+    path: 'the-force/',
+    pathMatch: 'full',
+    redirectTo: 'portfolio'
+  },
+  {
     path: 'portfolio',
     loadChildren: () => import('./modules/portfolio/portfolio.module').then(m => m.PortfolioModule)
   }

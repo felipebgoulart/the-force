@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ALL, GITHUB_IMAGE_NAME, GITHUB_IMAGE_URL } from 'src/app/core/constants/strings';
-import { IRepos } from '../../models/repos-interface';
+import { IRepos } from '../../interfaces/repos-interface';
 import { GithubService } from '../../services/github.service';
 
 @Component({
@@ -19,10 +19,10 @@ export class CatalogueComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getRepos();
+    this.getRepositories();
   }
 
-  private getRepos(): void {
+  private getRepositories(): void {
     this.githubService.getRepos()
       .subscribe((repos: IRepos[]) => {
         this.repositories = this.filteredRepositories = repos;

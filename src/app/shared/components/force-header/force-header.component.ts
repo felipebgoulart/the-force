@@ -1,14 +1,15 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChildren } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChildren, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-force-header',
   templateUrl: './force-header.component.html',
-  styleUrls: ['./force-header.component.scss']
+  styleUrls: ['./force-header.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ForceHeaderComponent implements OnInit, OnChanges {
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
+  onResize(event: Event) {
     this.innerWidth = window.innerWidth;
   }
 
@@ -27,7 +28,9 @@ export class ForceHeaderComponent implements OnInit, OnChanges {
 
   constructor(
     private renderer: Renderer2
-  ) { }
+  ) {
+    this.onResize(new Event('resize'));
+  }
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
@@ -63,12 +66,18 @@ export class ForceHeaderComponent implements OnInit, OnChanges {
     }
   }
 
-  public isOptionSelected(index: number) {
+  public isOptionSelected(index: number): boolean {
     return this.menuOptions[index] == this.selectedViewport;
   }
 
   public toggleMenu(): void {
     this.isOpened = !this.isOpened;
+
+    if (this.isOpened) {
+      this.renderer.setStyle(document.body, 'overflow', 'hidden')
+    } else {
+      this.renderer.removeStyle(document.body, 'overflow')
+    }
   }
 
 }

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IGithubUserInterface } from '../models/github-user-interface';
-import { IRepos } from '../models/repos-interface';
+import { IGithubUserInterface } from '../interfaces/github-user-interface';
+import { IRepos } from '../interfaces/repos-interface';
 
 @Injectable({
   providedIn: 'root'

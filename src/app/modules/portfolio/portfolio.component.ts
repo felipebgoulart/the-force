@@ -13,27 +13,26 @@ export class PortfolioComponent {
   @ViewChildren(regions) sections!: QueryList<ElementRef<HTMLElement>>;
 
   @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event): void {
+  public onScroll(event: Event): void {
 
     const homeElement: ElementRef<HTMLElement> | undefined = this.sections.toArray().find(element => element.nativeElement.id == 'Início');
 
     const activeSection = this.sections.toArray()
       .findIndex(section => this.isElementInViewport(section.nativeElement));
-    
 
     if (this.selectedViewport != regions.split(',')[activeSection]) {      
       this.selectedViewport = regions.split(',')[activeSection]
     }
 
-    if (window.scrollY >= document.documentElement.scrollHeight - 800) {
+    if (window.scrollY >= document.documentElement.scrollHeight - this.maxHeightToBeContact) {
       this.selectedViewport = regions.split(',')[5];
     }
 
-    if (window.scrollY > (homeElement!.nativeElement.scrollHeight * .15) && this.opacityNavbar) {
+    if (window.scrollY >= ((homeElement!.nativeElement.scrollHeight + this.customSizeHomeScreen) * this.percentHomeScreen) && this.opacityNavbar) {
       this.opacityNavbar = false;
     }
 
-    if (window.scrollY < (homeElement!.nativeElement.scrollHeight * .15) && !this.opacityNavbar) {
+    if (window.scrollY <= ((homeElement!.nativeElement.scrollHeight + this.customSizeHomeScreen) * this.percentHomeScreen) && !this.opacityNavbar) {
       this.opacityNavbar = true;
       
     }
@@ -41,6 +40,9 @@ export class PortfolioComponent {
 
   public selectedViewport: string = '';
   public opacityNavbar: boolean = true;
+  private maxHeightToBeContact: number = 800;
+  private percentHomeScreen: number = .15;
+  private customSizeHomeScreen: number = 0;
 
   constructor() {}
 

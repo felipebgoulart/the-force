@@ -16,10 +16,23 @@ describe('CatalogSelectorComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CatalogSelectorComponent);
     component = fixture.componentInstance;
+
+    component.filter = new Set<string>([
+      'dart',
+      'camel'
+    ]);
+
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should onLangSelected emit index', () => {
+    const langSpy = spyOn(component.langSelectedEmitter, 'emit');
+    component.onLangSelected('dart', 0);
+    
+    expect(component.langSelectedEmitter.emit).toHaveBeenCalledOnceWith('dart');
   });
 });

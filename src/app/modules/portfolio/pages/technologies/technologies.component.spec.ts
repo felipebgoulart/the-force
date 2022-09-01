@@ -1,4 +1,8 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AngularSvgIconModule, SvgIconRegistryService } from 'angular-svg-icon';
+import { ForceCardComponent } from './components/force-card/force-card.component';
+import { ForceCardModule } from './components/force-card/force-card.module';
 
 import { TechnologiesComponent } from './technologies.component';
 
@@ -8,7 +12,11 @@ describe('TechnologiesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TechnologiesComponent ]
+      declarations: [
+        TechnologiesComponent,
+        ForceCardComponent
+      ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   });
@@ -22,4 +30,9 @@ describe('TechnologiesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should technologies not null', () => {
+    expect(component.technologies.length).toEqual(8);
+  });
+
 });
