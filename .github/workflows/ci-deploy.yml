@@ -53,6 +53,15 @@ jobs:
       - name: Tests
         run: npm run test:prod
 
+      - uses: actions/checkout@master
+      - uses: codecov/codecov-action@v3
+        with:
+          flags: unittests
+          name: codecov-umbrella
+          directory: ./coverage/
+          fail_ci_if_error: true
+          verbose: true
+
   Upload_Artifact:
     needs: Static_Analysis
 
