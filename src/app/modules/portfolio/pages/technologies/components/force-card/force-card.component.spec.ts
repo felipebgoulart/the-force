@@ -10,10 +10,9 @@ describe('ForceCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ForceCardComponent ],
-      imports: [ AngularSvgIconModule ]
-    })
-    .compileComponents();
+      declarations: [ForceCardComponent],
+      imports: [AngularSvgIconModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -24,7 +23,7 @@ describe('ForceCardComponent', () => {
       color: 'black',
       description: 'dart lang',
       title: 'Flutter',
-      icon: 'fa'
+      icon: 'fa',
     };
 
     fixture.detectChanges();
@@ -36,13 +35,17 @@ describe('ForceCardComponent', () => {
 
   it('should mouse over change color', () => {
     component.onMouseOver();
-    
-    expect((<HTMLElement>component.cardItemChild.nativeElement).style.color).toEqual('black');
+
+    expect(
+      (<HTMLElement>component.cardItemChild.nativeElement).style.color
+    ).toEqual('black');
   });
 
   it('should mouse out change color', () => {
     component.onMouseOut();
-    
-    expect((<HTMLElement>component.cardItemChild.nativeElement).style.color).not.toEqual('black');
+
+    expect(
+      (<HTMLElement>component.cardItemChild.nativeElement).style.color
+    ).not.toEqual('black');
   });
 });

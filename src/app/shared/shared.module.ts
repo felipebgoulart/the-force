@@ -5,13 +5,7 @@ import { ForceHeaderModule } from './components/force-header/force-header.module
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    ForceHeaderModule,
-  ],
-  exports: [
-    ForceHeaderModule,
-    ForceButtonModule,
-  ]
+  imports: [CommonModule, ForceHeaderModule],
+  exports: [ForceHeaderModule, ForceButtonModule],
 })
-export class SharedModule { }
+export class SharedModule {}

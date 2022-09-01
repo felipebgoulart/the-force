@@ -3,19 +3,17 @@
     <span class="d-block resume-title">Meu currículo</span>
 
     <div class="mt-5">
-      <div *ngFor="let item of expericences; let i = index" class="row justify-content-between">
+      <div
+        *ngFor="let item of expericences; let i = index"
+        class="row justify-content-between">
         <div class="col-md-6 col-sm-12">
           <div *ngIf="i % 2 == 0" class="float-md-left mb-5">
-            <app-force-card-exp
-              [experience]="item"
-            ></app-force-card-exp>
+            <app-force-card-exp [experience]="item"></app-force-card-exp>
           </div>
         </div>
         <div class="col-md-6 col-sm-12">
           <div *ngIf="i % 2 != 0" class="float-md-right mb-5">
-            <app-force-card-exp
-              [experience]="item"
-            ></app-force-card-exp>
+            <app-force-card-exp [experience]="item"></app-force-card-exp>
           </div>
         </div>
       </div>

@@ -22,13 +22,12 @@ describe('CatalogueComponent', () => {
       declarations: [
         CatalogueComponent,
         CatalogSelectorComponent,
-        CatalogItemComponent
+        CatalogItemComponent,
       ],
-      imports: [ HttpClientModule ],
-      providers: [ GithubService ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
-    })
-    .compileComponents();
+      imports: [HttpClientModule],
+      providers: [GithubService],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
 
     githubService = TestBed.inject(GithubService);
   });
@@ -44,19 +43,20 @@ describe('CatalogueComponent', () => {
   });
 
   describe('subscribes GET test', () => {
-    
     it('should getRepos subscribe', () => {
       let responseRepos: IRepos[] = repositories;
-  
+
       let responseLangs = {
-        'dart': 1000,
-        'html': 1000,
-        'javascript': 1000,
-        'css': 10
+        dart: 1000,
+        html: 1000,
+        javascript: 1000,
+        css: 10,
       };
-  
+
       spyOn(githubService, 'getRepos').and.returnValue(of(responseRepos));
-      spyOn(githubService, 'getLanguagesRepo').and.returnValue(of(responseLangs));
+      spyOn(githubService, 'getLanguagesRepo').and.returnValue(
+        of(responseLangs)
+      );
 
       component['getRepositories']();
       fixture.detectChanges();
@@ -67,7 +67,6 @@ describe('CatalogueComponent', () => {
   });
 
   describe('filter repositories test', () => {
-    
     it('should filterProjects list all', () => {
       component.repositories = repositories;
       component.filterProjects(ALL);
@@ -80,11 +79,11 @@ describe('CatalogueComponent', () => {
 
       responseRepos.forEach((repo: IRepos) => {
         repo.languages = {
-          'dart': 1000,
-          'html': 1000,
-          'javascript': 1000,
-          'css': 10
-        }
+          dart: 1000,
+          html: 1000,
+          javascript: 1000,
+          css: 10,
+        };
       });
 
       component.repositories = responseRepos;
@@ -93,5 +92,4 @@ describe('CatalogueComponent', () => {
       expect(component.filteredRepositories).toEqual(repositories);
     });
   });
-
 });

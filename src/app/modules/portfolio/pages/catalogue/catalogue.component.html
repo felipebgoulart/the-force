@@ -5,17 +5,14 @@
     <div class="my-5">
       <app-catalog-selector
         [filter]="languagesFilter"
-        (langSelectedEmitter)="filterProjects($event)"
-      ></app-catalog-selector>
+        (langSelectedEmitter)="filterProjects($event)"></app-catalog-selector>
     </div>
 
     <div class="d-flex justify-content-start flex-wrap w-100 h-auto">
       <app-catalog-item
         *ngFor="let repo of filteredRepositories"
         [repository]="repo"
-        class="mr-3 mb-4 flex-grow-1 flex-md-grow-0"
-      ></app-catalog-item>
+        class="mr-3 mb-4 flex-grow-1 flex-md-grow-0"></app-catalog-item>
     </div>
-
   </div>
 </div>

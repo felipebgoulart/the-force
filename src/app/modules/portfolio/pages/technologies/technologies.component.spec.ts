@@ -12,13 +12,9 @@ describe('TechnologiesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        TechnologiesComponent,
-        ForceCardComponent
-      ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
-    })
-    .compileComponents();
+      declarations: [TechnologiesComponent, ForceCardComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -34,5 +30,4 @@ describe('TechnologiesComponent', () => {
   it('should technologies not null', () => {
     expect(component.technologies.length).toEqual(8);
   });
-
 });

@@ -1,8 +1,14 @@
-<div *ngIf="cardItem" class="force-card mb-5 p-2" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
-  <i #cardItemChild class="{{cardItem.icon}} fa-2x"></i>
+<div
+  *ngIf="cardItem"
+  class="force-card mb-5 p-2"
+  (mouseover)="onMouseOver()"
+  (mouseout)="onMouseOut()">
+  <i #cardItemChild class="{{ cardItem.icon }} fa-2x"></i>
   <div *ngIf="cardItem.svg" class="mb-1">
-    <svg-icon src="{{'assets/svg/' + cardItem.title.toLowerCase() + '.svg'}}" class="{{cardItem.title}}"></svg-icon>
+    <svg-icon
+      src="{{ 'assets/svg/' + cardItem.title.toLowerCase() + '.svg' }}"
+      class="{{ cardItem.title }}"></svg-icon>
   </div>
-  <span class="d-block force-card-title py-2">{{cardItem.title}}</span>
-  <div class="force-card-description">{{cardItem.description}}</div>
+  <span class="d-block force-card-title py-2">{{ cardItem.title }}</span>
+  <div class="force-card-description">{{ cardItem.description }}</div>
 </div>

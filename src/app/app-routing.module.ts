@@ -5,21 +5,24 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'portfolio'
+    redirectTo: 'portfolio',
   },
   {
     path: 'the-force/',
     pathMatch: 'full',
-    redirectTo: 'portfolio'
+    redirectTo: 'portfolio',
   },
   {
     path: 'portfolio',
-    loadChildren: () => import('./modules/portfolio/portfolio.module').then(m => m.PortfolioModule)
-  }
+    loadChildren: () =>
+      import('./modules/portfolio/portfolio.module').then(
+        m => m.PortfolioModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

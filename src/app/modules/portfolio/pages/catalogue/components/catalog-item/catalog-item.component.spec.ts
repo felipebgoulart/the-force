@@ -9,10 +9,9 @@ describe('CatalogItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CatalogItemComponent ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
-    })
-    .compileComponents();
+      declarations: [CatalogItemComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -29,6 +28,6 @@ describe('CatalogItemComponent', () => {
     const windowSpy = spyOn(window, 'open');
     component.openPageUrl('githubUrl');
 
-    expect(windowSpy).toHaveBeenCalledOnceWith('githubUrl', '_blank')
+    expect(windowSpy).toHaveBeenCalledOnceWith('githubUrl', '_blank');
   });
 });

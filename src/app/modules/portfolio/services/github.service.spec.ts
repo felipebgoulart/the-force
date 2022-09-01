@@ -1,6 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { IGithubUserInterface } from '../interfaces/github-user-interface';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 
 import { GithubService } from './github.service';
 import { IRepos } from '../interfaces/repos-interface';
@@ -11,7 +14,7 @@ describe('GithubService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
+      imports: [HttpClientTestingModule],
     });
     service = TestBed.inject(GithubService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -22,27 +25,26 @@ describe('GithubService', () => {
   });
 
   describe('test GET methods', () => {
-
     it('should getUserProfile return observable', () => {
-      
       const gitProfileResponse: IGithubUserInterface = {
         avatar_url: '',
-        html_url: ''
+        html_url: '',
       };
 
-      service.getUserProfile().subscribe((response) => {
+      service.getUserProfile().subscribe(response => {
         expect(response).toEqual(gitProfileResponse);
       });
 
-      const req = httpMock.expectOne('https://api.github.com/users/Hideki-Goulart');
-      expect(req.request.method).toEqual("GET");
+      const req = httpMock.expectOne(
+        'https://api.github.com/users/Hideki-Goulart'
+      );
+      expect(req.request.method).toEqual('GET');
       req.flush(gitProfileResponse);
 
       httpMock.verify();
     });
 
     it('should getRepos return observable', () => {
-      
       const reposResponse: IRepos[] = [
         {
           id: '',
@@ -54,33 +56,40 @@ describe('GithubService', () => {
           image_url: '',
           languages: {},
           languages_url: '',
-          name: ''
-        }
+          name: '',
+        },
       ];
 
-      service.getRepos().subscribe((response) => {
+      service.getRepos().subscribe(response => {
         expect(response).toEqual(reposResponse);
       });
 
-      const req = httpMock.expectOne('https://api.github.com/users/Hideki-Goulart/repos');
-      expect(req.request.method).toEqual("GET");
+      const req = httpMock.expectOne(
+        'https://api.github.com/users/Hideki-Goulart/repos'
+      );
+      expect(req.request.method).toEqual('GET');
       req.flush(reposResponse);
 
       httpMock.verify();
     });
 
     it('should getLanguagesRepo return observable', () => {
-      
       const languageResponse: any = {
-        'Dart': 1000
+        Dart: 1000,
       };
 
-      service.getLanguagesRepo('https://api.github.com/users/Hideki-Goulart/languages').subscribe((response) => {
-        expect(response).toEqual(languageResponse);
-      });
+      service
+        .getLanguagesRepo(
+          'https://api.github.com/users/Hideki-Goulart/languages'
+        )
+        .subscribe(response => {
+          expect(response).toEqual(languageResponse);
+        });
 
-      const req = httpMock.expectOne('https://api.github.com/users/Hideki-Goulart/languages');
-      expect(req.request.method).toEqual("GET");
+      const req = httpMock.expectOne(
+        'https://api.github.com/users/Hideki-Goulart/languages'
+      );
+      expect(req.request.method).toEqual('GET');
       req.flush(languageResponse);
 
       httpMock.verify();

@@ -4,15 +4,12 @@ import { IExperienceItem } from 'src/app/modules/portfolio/pages/resume/models/e
 @Component({
   selector: 'app-force-card-exp',
   templateUrl: './force-card-exp.component.html',
-  styleUrls: ['./force-card-exp.component.scss']
+  styleUrls: ['./force-card-exp.component.scss'],
 })
 export class ForceCardExpComponent implements OnInit {
-
   @Input('experience') experience!: IExperienceItem;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

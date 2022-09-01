@@ -10,12 +10,8 @@ describe('AboutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AboutComponent,
-        ForceButtonComponent
-      ]
-    })
-    .compileComponents();
+      declarations: [AboutComponent, ForceButtonComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -39,6 +35,9 @@ describe('AboutComponent', () => {
     const spy = spyOn(window, 'open');
     component.downloadCV();
 
-    expect(spy).toHaveBeenCalledWith('https://github.com/Hideki-Goulart/the-force/raw/develop/Felipe%20Barbosa%20Goulart%20-%20CV.pdf', '_blank');
+    expect(spy).toHaveBeenCalledWith(
+      'https://github.com/Hideki-Goulart/the-force/raw/develop/Felipe%20Barbosa%20Goulart%20-%20CV.pdf',
+      '_blank'
+    );
   });
 });

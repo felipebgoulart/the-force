@@ -1,37 +1,35 @@
 <div
-[ngClass]="opacityNavbar ? '' : 'showNavbar'"
-class="d-flex flex-column flex-md-row justify-content-md-end align-items-center pr-md-5 header"
-[ngClass]="isOpened ? 'header-menu h-100' : ''"
->
-
+  [ngClass]="opacityNavbar ? '' : 'showNavbar'"
+  class="d-flex flex-column flex-md-row justify-content-md-end align-items-center pr-md-5 header"
+  [ngClass]="isOpened ? 'header-menu h-100' : ''">
   <div *ngIf="innerWidth > 765" class="row w-100 justify-content-start ml-5">
-    <img src="assets/images/logo.png" alt="Forcefolio" width="100px">
+    <img src="assets/images/logo.png" alt="Forcefolio" width="100px" />
   </div>
 
   <div
     *ngIf="innerWidth < 765"
     class="align-self-end position-sticky p-3 row w-100"
     [ngClass]="isOpened ? 'justify-content-between' : 'justify-content-end'"
-    (click)="toggleMenu()"
-  >
-    <img *ngIf="isOpened" src="assets/images/logo.png" alt="Forcefolio" width="100px">
+    (click)="toggleMenu()">
+    <img
+      *ngIf="isOpened"
+      src="assets/images/logo.png"
+      alt="Forcefolio"
+      width="100px" />
     <i *ngIf="isOpened" class="fa-solid fa-xmark pr-3"></i>
     <i *ngIf="!isOpened" class="fa-solid fa-bars pr-3"></i>
   </div>
 
   <div
     #item
-    id={{option}}
+    id="{{ option }}"
     *ngFor="let option of menuOptions; let i = index"
-    class="header-item"
-  >
+    class="header-item">
     <div
       *ngIf="isOpened || innerWidth > 765"
       (click)="onOptionSelected(option)"
-      class="mr-3 d-sm-block p-md-0 p-4"
-    >
-      {{option}}
+      class="mr-3 d-sm-block p-md-0 p-4">
+      {{ option }}
     </div>
   </div>
-
 </div>

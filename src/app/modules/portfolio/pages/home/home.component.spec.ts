@@ -13,11 +13,10 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ],
-      imports: [ HttpClientModule ],
-      providers: [ GithubService ]
-    })
-    .compileComponents();
+      declarations: [HomeComponent],
+      imports: [HttpClientModule],
+      providers: [GithubService],
+    }).compileComponents();
 
     service = TestBed.inject(GithubService);
   });
@@ -35,14 +34,14 @@ describe('HomeComponent', () => {
   it('should getGithubUser fill user', () => {
     const response: IGithubUserInterface = {
       avatar_url: '',
-      html_url: ''
+      html_url: '',
     };
 
-    spyOn(service, 'getUserProfile').and.returnValue(of(response))
+    spyOn(service, 'getUserProfile').and.returnValue(of(response));
     component['getGithubUser']();
 
     fixture.detectChanges();
-  
+
     expect(component.githubUser).toEqual(response);
   });
 

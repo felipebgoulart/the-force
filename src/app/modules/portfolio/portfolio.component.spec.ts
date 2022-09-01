@@ -1,6 +1,11 @@
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, ElementRef, QueryList } from '@angular/core';
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -13,17 +18,11 @@ describe('PortfolioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        HttpClientModule
-      ],
-      declarations: [
-        PortfolioComponent,
-      ],
-      providers: [ GithubService ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule, HttpClientModule],
+      declarations: [PortfolioComponent],
+      providers: [GithubService],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -38,13 +37,18 @@ describe('PortfolioComponent', () => {
 
   it('should isElementInViewport method test', () => {
     const element: ElementRef<HTMLElement> = component.sections.toArray()[0];
-    const isElementInViewport: boolean = component['isElementInViewport'](element.nativeElement);
+    const isElementInViewport: boolean = component['isElementInViewport'](
+      element.nativeElement
+    );
 
     expect(isElementInViewport).toEqual(true);
   });
 
   it('should navigateToPage method test', fakeAsync(() => {
-    let spy = spyOn(component.sections.toArray()[1].nativeElement, 'scrollIntoView');
+    let spy = spyOn(
+      component.sections.toArray()[1].nativeElement,
+      'scrollIntoView'
+    );
     component.navigateToPage('Sobre');
 
     expect(spy).toHaveBeenCalled();
@@ -54,24 +58,24 @@ describe('PortfolioComponent', () => {
     component.selectedViewport = 'Contato';
 
     fixture.detectChanges();
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0);
     window.dispatchEvent(new Event('scroll'));
 
     expect(component.selectedViewport).toEqual('Contato');
   }));
-  
+
   it('should onScroll listener event same viewport', fakeAsync(() => {
     component.selectedViewport = 'Início';
     fixture.detectChanges();
     window.dispatchEvent(new Event('scroll'));
     expect(component.selectedViewport).toEqual('Contato');
   }));
-  
+
   it('should onScroll listener event is 15% heigher than contact viewport', fakeAsync(() => {
     component.selectedViewport = 'Início';
     window.scrollTo(0, 0);
     component['maxHeightToBeContact'] = 10;
-    
+
     window.dispatchEvent(new Event('scroll'));
     expect(component.selectedViewport).toEqual('Início');
   }));
@@ -82,7 +86,7 @@ describe('PortfolioComponent', () => {
     component['percentHomeScreen'] = -0.15;
     component['customSizeHomeScreen'] = 10;
     window.scrollTo(0, 0);
-    
+
     window.dispatchEvent(new Event('scroll'));
     expect(component.selectedViewport).toEqual('Contato');
   }));
@@ -93,7 +97,7 @@ describe('PortfolioComponent', () => {
     component['percentHomeScreen'] = -0.15;
     component['customSizeHomeScreen'] = -10;
     window.scrollTo(0, 0);
-    
+
     window.dispatchEvent(new Event('scroll'));
     expect(component.selectedViewport).toEqual('Contato');
   }));

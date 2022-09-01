@@ -9,9 +9,8 @@ describe('ForceButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ForceButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [ForceButtonComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

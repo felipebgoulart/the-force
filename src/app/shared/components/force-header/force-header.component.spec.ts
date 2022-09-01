@@ -10,9 +10,8 @@ describe('ForceHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ForceHeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [ForceHeaderComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -22,13 +21,12 @@ describe('ForceHeaderComponent', () => {
 
     component.isOpened = false;
   });
-  
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
   describe('test menu options', () => {
-
     const aboutOption: string = 'Sobre';
 
     it('should toggleMenu block scroll', () => {
@@ -53,7 +51,9 @@ describe('ForceHeaderComponent', () => {
       component.onOptionSelected(aboutOption);
 
       expect(component.isOpened).toEqual(true);
-      expect(component.headerOptionEmitter.emit).toHaveBeenCalledWith(aboutOption);
+      expect(component.headerOptionEmitter.emit).toHaveBeenCalledWith(
+        aboutOption
+      );
     });
 
     it('should onOptionSelected emit and not toggle menu', () => {
@@ -63,7 +63,9 @@ describe('ForceHeaderComponent', () => {
       component.onOptionSelected(aboutOption);
 
       expect(component.isOpened).toEqual(false);
-      expect(component.headerOptionEmitter.emit).toHaveBeenCalledWith(aboutOption);
+      expect(component.headerOptionEmitter.emit).toHaveBeenCalledWith(
+        aboutOption
+      );
     });
 
     it('should isOptionSelected return true', () => {
@@ -74,11 +76,10 @@ describe('ForceHeaderComponent', () => {
   });
 
   describe('test lifecycle', () => {
-
     it('should resize hostListener set innerWidth', () => {
-      const heroEl = fixture.debugElement.query(By.css(".header"));
-      heroEl.triggerEventHandler("window:resize", 800); 
-      
+      const heroEl = fixture.debugElement.query(By.css('.header'));
+      heroEl.triggerEventHandler('window:resize', 800);
+
       expect(component.innerWidth).toEqual(800);
     });
 
@@ -88,9 +89,11 @@ describe('ForceHeaderComponent', () => {
       };
 
       component.ngOnChanges(changesObj);
-      
-      const elementSelected: HTMLElement | null = document.getElementById('Contato');
-      const isSelected: boolean | undefined = elementSelected?.classList.contains('selected');
+
+      const elementSelected: HTMLElement | null =
+        document.getElementById('Contato');
+      const isSelected: boolean | undefined =
+        elementSelected?.classList.contains('selected');
 
       expect(isSelected).toEqual(true);
     });
@@ -108,9 +111,11 @@ describe('ForceHeaderComponent', () => {
       };
 
       component.ngOnChanges(changesObj);
-      
-      const elementSelected: HTMLElement | null = document.getElementById('Contato');
-      const isSelected: boolean | undefined = elementSelected?.classList.contains('selected');
+
+      const elementSelected: HTMLElement | null =
+        document.getElementById('Contato');
+      const isSelected: boolean | undefined =
+        elementSelected?.classList.contains('selected');
 
       expect(isSelected).toEqual(true);
     });
@@ -121,9 +126,11 @@ describe('ForceHeaderComponent', () => {
       };
 
       component.ngOnChanges(changesObj);
-      
-      const elementSelected: HTMLElement | null = document.getElementById('Sobre');
-      const isSelected: boolean | undefined = elementSelected?.classList.contains('selected');
+
+      const elementSelected: HTMLElement | null =
+        document.getElementById('Sobre');
+      const isSelected: boolean | undefined =
+        elementSelected?.classList.contains('selected');
 
       expect(isSelected).toEqual(false);
     });
