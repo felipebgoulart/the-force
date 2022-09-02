@@ -1,0 +1,44 @@
+.force-card {
+  min-height: 225px;
+  max-height: 225px;
+  text-align: left;
+  color: #bebebe;
+  overflow: hidden;
+  opacity: 0.7;
+  transition: 1s;
+
+  .Flutter {
+    fill: #d0d0d0;
+  }
+
+  .Camel {
+    fill: #d0d0d0;
+  }
+
+  &-title {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &-description {
+    font-size: 16px;
+    font-weight: 300;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-family: sans-serif;
+  }
+}
+
+.force-card:hover {
+  opacity: 1;
+  transition: 1s;
+  color: #fafafa;
+
+  .Flutter {
+    fill: #47c5fb;
+  }
+
+  .Camel {
+    fill: #ff9d00;
+  }
+}

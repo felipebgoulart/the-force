@@ -1,0 +1,18 @@
+.catalog-selector {
+  cursor: pointer;
+
+  &-item {
+    color: #fafafa;
+    border-radius: 5px;
+  }
+
+  &-item:hover {
+    background-color: #fafafa;
+    color: #000000;
+  }
+
+  &-selected {
+    background-color: #fafafa;
+    color: #000000;
+  }
+}

@@ -1,0 +1,53 @@
+.header {
+  height: 60px;
+  position: fixed;
+  background-color: transparent;
+  width: 100%;
+  z-index: 2;
+  color: #b7b7b7;
+  transition: 0.2s ease-out;
+
+  &-item {
+    cursor: pointer;
+  }
+
+  &-item.selected {
+    color: #fafafa;
+  }
+
+  i {
+    color: #fafafa;
+  }
+}
+
+.showNavbar {
+  background-color: #020408;
+  transition: 0.2s ease-in;
+
+  span.selected {
+    color: #fafafa;
+  }
+}
+
+@media (max-width: 765px) {
+  .header {
+    position: fixed;
+    background-color: transparent;
+    width: 100%;
+    z-index: 2;
+    color: #b7b7b7;
+    transition: 0.2s ease-out;
+
+    &-menu {
+      background-color: #020408;
+    }
+
+    span.selected {
+      color: red;
+    }
+
+    i {
+      color: #fafafa;
+    }
+  }
+}

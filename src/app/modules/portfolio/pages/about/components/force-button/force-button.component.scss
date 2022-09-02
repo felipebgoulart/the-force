@@ -1,0 +1,16 @@
+.force-button {
+  cursor: pointer;
+  background-color: #fafafab5;
+  border-radius: 6px;
+  color: #000000;
+
+  span {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+.force-button:hover {
+  background-color: #fafafa;
+  color: #000000;
+}

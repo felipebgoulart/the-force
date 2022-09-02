@@ -1,0 +1,12 @@
+<section class="technologies">
+  <div class="row m-0 p-5 technologies-list">
+    <h2 class="technologies-title">Serviços</h2>
+
+    <div class="row mt-4">
+      <app-force-card
+        *ngFor="let tech of technologies"
+        [cardItem]="tech"
+        class="flex-grow-0 col-12 col-md-4"></app-force-card>
+    </div>
+  </div>
+</section>

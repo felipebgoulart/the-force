@@ -1,0 +1,9 @@
+<div class="row d-flex justify-content-center catalog-selector">
+  <div
+    *ngFor="let lang of filter; let i = index"
+    class="py-2 px-4 mr-3 catalog-selector-item"
+    [ngClass]="i == selectedIndex ? 'catalog-selector-selected' : ''"
+    (click)="onLangSelected(lang, i)">
+    {{ lang }}
+  </div>
+</div>

@@ -1,27 +1,29 @@
-# TheForce
+[![codecov](https://codecov.io/gh/felipebgoulart/the-force/branch/prod/graph/badge.svg?token=8b9a41a1-a475-4b1b-a791-64f453ccc8e0)](https://codecov.io/gh/felipebgoulart/the-force) ![Homolog](https://github.com/felipebgoulart/the-force/actions/workflows/ci-stage.yml/badge.svg) ![Deploy](https://github.com/felipebgoulart/the-force/actions/workflows/ci-deploy.yml/badge.svg)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
+# The Force
 
-## Development server
+Esse é meu portifólio pessoal
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[Design - Figma](https://www.figma.com/file/7aChNJeWymHA4eDaFzxgZW/The-Force)
 
-## Code scaffolding
+![An old rock in the desert](social.png 'Shiprock, New Mexico by Beau Rogers')
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Overview
 
-## Build
+Este projeto foi gerado usando [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18. <br/>
+E [NodeJS](https://github.com/nodejs) version 14.15.0 - npm 6.14.8
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+O intuito do projeto é funcionar como portifólio pessoal, para exibir as minhas principais habilidades e projetos relacionados a desenvolvimento de softwares.
 
-## Running unit tests
+## Pré Requisitos
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[Angular CLI](https://github.com/angular/angular-cli) version 12.2.18 <br/>
+[NodeJS](https://github.com/nodejs) version 14.15.0 - npm 6.14.8
 
-## Running end-to-end tests
+## Desenvolvimento local
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Use o script `npm start` para rodar o projeto localmente. Navegue para `http://localhost:4200/`.
 
-## Further help
+## Rodando os testes unitários
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Use o script `npm run test:prod` para executar os testes unitarios via [Karma](https://karma-runner.github.io).
