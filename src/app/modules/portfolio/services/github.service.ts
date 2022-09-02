@@ -12,13 +12,13 @@ export class GithubService {
 
   public getUserProfile(): Observable<IGithubUserInterface> {
     return this.http.get<IGithubUserInterface>(
-      'https://api.github.com/users/Hideki-Goulart'
+      'https://api.github.com/users/felipebgoulart'
     );
   }
 
   public getRepos(): Observable<IRepos[]> {
     return this.http.get<IRepos[]>(
-      'https://api.github.com/users/Hideki-Goulart/repos'
+      'https://api.github.com/users/felipebgoulart/repos'
     );
   }
 
