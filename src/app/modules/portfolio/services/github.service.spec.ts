@@ -36,7 +36,7 @@ describe('GithubService', () => {
       });
 
       const req = httpMock.expectOne(
-        'https://api.github.com/users/Hideki-Goulart'
+        'https://api.github.com/users/felipebgoulart'
       );
       expect(req.request.method).toEqual('GET');
       req.flush(gitProfileResponse);
@@ -65,7 +65,7 @@ describe('GithubService', () => {
       });
 
       const req = httpMock.expectOne(
-        'https://api.github.com/users/Hideki-Goulart/repos'
+        'https://api.github.com/users/felipebgoulart/repos'
       );
       expect(req.request.method).toEqual('GET');
       req.flush(reposResponse);
@@ -80,14 +80,14 @@ describe('GithubService', () => {
 
       service
         .getLanguagesRepo(
-          'https://api.github.com/users/Hideki-Goulart/languages'
+          'https://api.github.com/users/felipebgoulart/languages'
         )
         .subscribe(response => {
           expect(response).toEqual(languageResponse);
         });
 
       const req = httpMock.expectOne(
-        'https://api.github.com/users/Hideki-Goulart/languages'
+        'https://api.github.com/users/felipebgoulart/languages'
       );
       expect(req.request.method).toEqual('GET');
       req.flush(languageResponse);
