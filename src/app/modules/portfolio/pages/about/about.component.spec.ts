@@ -36,7 +36,7 @@ describe('AboutComponent', () => {
     component.downloadCV();
 
     expect(spy).toHaveBeenCalledWith(
-      'https://github.com/Hideki-Goulart/the-force/raw/develop/Felipe%20Barbosa%20Goulart%20-%20CV.pdf',
+      'https://github.com/felipebgoulart/the-force/raw/develop/Felipe%20Barbosa%20Goulart%20-%20CV.pdf',
       '_blank'
     );
   });
