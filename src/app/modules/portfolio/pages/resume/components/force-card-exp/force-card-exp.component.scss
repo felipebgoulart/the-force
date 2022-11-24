@@ -1,23 +1,27 @@
-.force-card-exp {
-  background-color: transparent;
-  max-width: 450px;
-  border: 5px solid #a7a7a79f;
-  color: #fafafaac;
+.logo {
+  height: 240px;
+  min-width: 300px;
+  width: 300px;
+  background-size: cover;
+  border-radius: 15%;
+}
 
-  &-title {
-    color: #14788f;
-    font-weight: 700;
-    font-size: 20px;
-  }
+.company-name {
+  font-size: 3rem;
+  color: #fafafa;
+}
 
-  &-description {
-    height: 68px;
-    overflow-y: hidden;
-    text-overflow: ellipsis;
-  }
+.job {
+  font-size: 1.3rem;
+  color: #fafafabd;
+}
 
-  hr {
-    border: 1px solid #fafafa7d;
-    width: 100%;
-  }
+.period {
+  font-size: 1rem;
+  color: #fafafabd;
+}
+
+.description {
+  font-size: 1rem;
+  color: #fafafabd;
 }

@@ -1,12 +1,11 @@
-<div
-  *ngIf="experience"
-  class="p-4 d-flex flex-column align-items-center force-card-exp">
-  <span class="d-block force-card-exp-title text-center">{{
-    experience.job
-  }}</span>
-  <span class="d-block force-card-exp-subtitle text-center">{{
-    experience.period
-  }}</span>
-  <hr />
-  <div class="force-card-exp-description">{{ experience.description }}</div>
+<div class="d-flex flex-md-row flex-column py-5">
+  <div class="d-flex justify-content-center">
+    <img class="logo pr-5" src="assets/images/{{ experience.logo }}" />
+  </div>
+  <div class="py-2 overflow-hidden text-center text-md-left">
+    <span class="d-block mb-1 company-name">{{ experience.companyName }}</span>
+    <span class="d-block mb-1 job">{{ experience.job }}</span>
+    <span class="d-block mb-1 period">{{ experience.period }}</span>
+    <span class="d-block description">{{ experience.description }}</span>
+  </div>
 </div>

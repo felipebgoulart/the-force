@@ -50,9 +50,12 @@ export class CatalogueComponent implements OnInit {
       this.filteredRepositories = this.repositories;
     } else {
       this.filteredRepositories = this.repositories.filter((repo: IRepos) => {
-        let linesCount = Object.values(repo.languages).reduce(
-          (previous, next) => previous + next
-        );
+        let linesCount =
+          Object.keys(repo.languages).length == 0
+            ? 1
+            : Object.values(repo.languages).reduce(
+                (previous, next) => previous + next
+              );
         let filter: boolean = false;
 
         Object.entries(repo.languages).forEach((entry: any[]) => {
@@ -71,9 +74,10 @@ export class CatalogueComponent implements OnInit {
 
   private filterOptions(languages: object): void {
     let keysLang: string[] = [];
-    let linesCount = Object.values(languages).reduce(
-      (previous, next) => previous + next
-    );
+    let linesCount =
+      Object.keys(languages).length == 0
+        ? 1
+        : Object.values(languages).reduce((previous, next) => previous + next);
     Object.entries(languages).forEach((entry: any[]) => {
       if (
         Number.parseInt(

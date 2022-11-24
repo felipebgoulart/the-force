@@ -8,11 +8,11 @@
         (langSelectedEmitter)="filterProjects($event)"></app-catalog-selector>
     </div>
 
-    <div class="d-flex justify-content-start flex-wrap w-100 h-auto">
+    <div class="row">
       <app-catalog-item
         *ngFor="let repo of filteredRepositories"
         [repository]="repo"
-        class="mr-3 mb-4 flex-grow-1 flex-md-grow-0"></app-catalog-item>
+        class="flex-grow-0 col-12 col-md-4 p-2"></app-catalog-item>
     </div>
   </div>
 </div>
