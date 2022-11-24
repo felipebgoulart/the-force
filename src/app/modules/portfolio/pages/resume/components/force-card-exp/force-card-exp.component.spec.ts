@@ -17,6 +17,8 @@ describe('ForceCardExpComponent', () => {
     component = fixture.componentInstance;
 
     component.experience = {
+      companyName: '',
+      logo: '',
       job: '',
       description: '',
       period: '',
